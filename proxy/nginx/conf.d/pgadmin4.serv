@@ -1,0 +1,7 @@
+  location /pgadmin4/ {
+     rewrite ^/pgadmin4(.*) $1 break;
+     proxy_set_header X-Script-Name /pgadmin4;
+     proxy_set_header Host $host;
+     proxy_pass http://pgadmin4-upstream/;
+     proxy_redirect off;
+  }
