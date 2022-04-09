@@ -1,0 +1,10 @@
+# general entries
+**/data/*
+**/logs
+
+# geoserver entries
+geoserver/**/*.xml
+geoserver/gs_datadir/gwc*
+geoserver/gs_datadir/security*
+geoserver/gs_datadir/styles*
+geoserver/gs_datadir/workspaces*
