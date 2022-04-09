@@ -1,0 +1,145 @@
+# POC stack - services and apps
+version: '3.4'
+
+services:
+  load_balance:
+    #image: terrabrasilis/nginx-manager:v1.0
+    image: nginx:1.21-alpine
+    container_name: load_balance
+    depends_on:
+      - "gsmaster"
+      - "gsworker"
+      # - "webmap"
+      # - "address-form"
+      # - "address-api"
+      # - "address-geocode"
+      - "pgadmin4"
+    restart: always
+    networks:
+      - proxy
+    ports:
+      - "80:80"
+    volumes: 
+      - ${POC_BASE_DIR}/proxy/nginx/conf.d:/etc/nginx/conf.d:ro
+      - ${POC_BASE_DIR}/proxy/data:/var/log/nginx
+
+  gsmaster:
+    image: terrabrasilis/geoserver-master:v1.0.6
+    container_name: gsmaster
+    restart: always
+    ports:
+      - "8000:8080"
+    networks:
+      - proxy
+      - backend
+    volumes: 
+      - ${POC_BASE_DIR}/geoserver/gs_datadir:/var/local/geoserver
+      - ${POC_BASE_DIR}/geoserver/gs_extensions:/var/local/geoserver-exts
+    env_file:
+      - ${POC_BASE_DIR}/geoserver/master.env
+
+  gsworker:
+    image: terrabrasilis/geoserver-worker:v1.0.6
+    container_name: gsworker
+    restart: always
+    ports:
+      - "8001:8080"
+    networks:
+      - proxy
+      - backend
+    volumes:
+      - ${POC_BASE_DIR}/geoserver/gs_datadir:/var/local/geoserver
+      - ${POC_BASE_DIR}/geoserver/gs_extensions:/var/local/geoserver-exts
+    env_file:
+      - ${POC_BASE_DIR}/geoserver/worker.env
+
+  # webmap:
+  #   image: pucpoc/webmap:v1.0.0
+  #   container_name: webmap
+  #   restart: always
+  #   ports:
+  #     - "8002:80"
+  #   networks:
+  #     - proxy
+  #   volumes:
+  #     - ${POC_BASE_DIR}/webmap/data:/data
+
+  # address-form:
+  #   image:  pucpoc/webapp-address-form:v1.0.0
+  #   container_name: address-form
+  #   restart: always
+  #   ports:
+  #     - "8003:80"
+  #   networks:
+  #     - proxy
+  #     - backend
+  #   volumes:
+  #     - ${POC_BASE_DIR}/address-form/data:/data
+  #   depends_on:
+  #     - address-geocode
+  #     - address-api
+  #   env_file:
+  #     - ${POC_BASE_DIR}/address-form/form.env
+
+  # address-api:
+  #   image:  pucpoc/address-api-service:v1.0.0
+  #   container_name: address-api
+  #   restart: always
+  #   ports:
+  #     - "8004:80"
+  #   networks:
+  #     - proxy
+  #     - backend
+  #   volumes:
+  #     - ${POC_BASE_DIR}/address-api/data:/data
+  #   depends_on:
+  #     - postgresdb
+  #   env_file:
+  #     - ${POC_BASE_DIR}/address-api/api.env
+
+  # address-geocode:
+  #   image:  pucpoc/address-geocode-service:v1.0.0
+  #   container_name: address-geocode
+  #   restart: always
+  #   ports:
+  #     - "8005:80"
+  #   networks:
+  #     - proxy
+  #     - backend
+  #   volumes:
+  #     - ${POC_BASE_DIR}/address-geocode/data:/data
+  #   env_file:
+  #     - ${POC_BASE_DIR}/address-geocode/geocode.env
+
+  postgresdb:
+    image: kartoza/postgis:13
+    container_name: postgresdb
+    restart: always
+    volumes:
+      - ${POC_BASE_DIR}/postgresdb/data:/var/lib/postgresql
+    ports:
+      - "5433:5432"
+    networks:
+      - backend
+    env_file:
+      - ${POC_BASE_DIR}/postgresdb/postgres.env
+
+  pgadmin4:
+    image: dpage/pgadmin4:6.8
+    container_name: pgadmin4
+    restart: always
+    ports:
+      - "5555:80"
+    volumes:
+      - ${POC_BASE_DIR}/pgclient/data:/var/lib/pgadmin
+    networks:
+      - proxy
+      - backend
+    depends_on:
+      - postgresdb
+    env_file:
+      - ${POC_BASE_DIR}/pgclient/pgadmin4.env
+
+networks:
+  proxy:
+  backend:
