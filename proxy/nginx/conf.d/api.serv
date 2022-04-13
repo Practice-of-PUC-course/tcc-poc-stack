@@ -1,0 +1,7 @@
+  location /geocode/v1 {
+    proxy_pass http://geocode-upstream/geocode/v1;
+  }
+
+  location /registry/v1 {
+    proxy_pass http://registry-upstream/registry/v1;
+  }

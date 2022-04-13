@@ -1,0 +1,3 @@
+  location /client {
+    proxy_pass http://form-upstream/client;
+  }
