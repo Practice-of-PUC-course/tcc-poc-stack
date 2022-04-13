@@ -1,6 +1,7 @@
 # general entries
 **/data/*
 **/logs
+**/.env
 
 # geoserver entries
 geoserver/**/*.xml
