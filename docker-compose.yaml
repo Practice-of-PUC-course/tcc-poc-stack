@@ -81,7 +81,7 @@ services:
       - ${POC_BASE_DIR}/address-form/.env
 
   registry-api:
-    image:  softwarevale/tcc-registry-api:v1.1.0
+    image:  softwarevale/tcc-registry-api:v1.1.1
     container_name: registry-api
     restart: always
     ports:
