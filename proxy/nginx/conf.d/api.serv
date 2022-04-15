@@ -1,7 +1,15 @@
   location /geocode/v1 {
+    # enable CORS
+    add_header 'Access-Control-Allow-Origin' '*';
+    add_header 'Access-Control-Allow-Methods' 'GET, POST, PUT, OPTIONS';
+
     proxy_pass http://geocode-upstream/geocode/v1;
   }
 
   location /registry/v1 {
+    # enable CORS
+    add_header 'Access-Control-Allow-Origin' '*';
+    add_header 'Access-Control-Allow-Methods' 'GET, POST, PUT, OPTIONS';
+
     proxy_pass http://registry-upstream/registry/v1;
   }
