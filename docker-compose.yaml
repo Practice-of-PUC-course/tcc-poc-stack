@@ -8,7 +8,7 @@ services:
     depends_on:
       - "gsmaster"
       - "gsworker"
-      # - "webmap"
+      - "webmap"
       - "address-form"
       - "registry-api"
       - "address-geocode"
@@ -52,16 +52,18 @@ services:
     env_file:
       - ${POC_BASE_DIR}/geoserver/worker.env
 
-  # webmap:
-  #   image: softwarevale/webmap:v1.0.0
-  #   container_name: webmap
-  #   restart: always
-  #   ports:
-  #     - "8002:80"
-  #   networks:
-  #     - proxy
-  #   volumes:
-  #     - ${POC_BASE_DIR}/webmap/data:/data
+  webmap:
+    image: softwarevale/tcc-webmap-app:v1.0.0
+    container_name: webmap
+    restart: always
+    ports:
+      - "8002:3000"
+    networks:
+      - proxy
+    volumes:
+      - ${POC_BASE_DIR}/webmap/data:/data
+    env_file:
+      - ${POC_BASE_DIR}/webmap/.env
 
   address-form:
     image:  softwarevale/tcc-address-form:v1.0.3

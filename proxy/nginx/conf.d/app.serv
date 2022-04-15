@@ -1,3 +1,6 @@
   location /client {
     proxy_pass http://form-upstream/client;
   }
+  location /map {
+    proxy_pass http://map-upstream/map;
+  }
