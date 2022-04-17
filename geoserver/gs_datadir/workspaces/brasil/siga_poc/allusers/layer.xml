@@ -1,0 +1,17 @@
+<layer>
+  <name>allusers</name>
+  <id>LayerInfoImpl--4b0918f9:1802550e813:-7ff9</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl-775e6634:1802d3a2206:-7fb6</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--4b0918f9:1802550e813:-7ffa</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+  <dateCreated>2022-04-14 15:11:31.911 UTC</dateCreated>
+  <dateModified>2022-04-15 14:55:42.828 UTC</dateModified>
+</layer>

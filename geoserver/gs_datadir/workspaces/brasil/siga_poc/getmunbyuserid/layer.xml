@@ -1,0 +1,17 @@
+<layer>
+  <name>getmunbyuserid</name>
+  <id>LayerInfoImpl-775e6634:1802d3a2206:-7743</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--75300182:1800fb9638a:-7ffe</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl-775e6634:1802d3a2206:-7744</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+  <dateCreated>2022-04-15 17:41:12.783 UTC</dateCreated>
+  <dateModified>2022-04-15 18:45:08.790 UTC</dateModified>
+</layer>

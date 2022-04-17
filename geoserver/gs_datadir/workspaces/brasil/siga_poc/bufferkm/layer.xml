@@ -1,0 +1,17 @@
+<layer>
+  <name>bufferkm</name>
+  <id>LayerInfoImpl--4b0918f9:1802550e813:-776e</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--4b0918f9:1802550e813:-775d</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--4b0918f9:1802550e813:-776f</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+  <dateCreated>2022-04-15 02:15:29.164 UTC</dateCreated>
+  <dateModified>2022-04-15 18:56:02.170 UTC</dateModified>
+</layer>

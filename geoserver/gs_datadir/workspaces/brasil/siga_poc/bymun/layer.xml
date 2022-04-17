@@ -1,0 +1,17 @@
+<layer>
+  <name>bymun</name>
+  <id>LayerInfoImpl-775e6634:1802d3a2206:-7e42</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl-775e6634:1802d3a2206:-7e3b</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl-775e6634:1802d3a2206:-7e43</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+  <dateCreated>2022-04-15 15:06:31.289 UTC</dateCreated>
+  <dateModified>2022-04-15 18:56:09.882 UTC</dateModified>
+</layer>

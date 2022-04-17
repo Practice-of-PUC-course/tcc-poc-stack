@@ -1,0 +1,17 @@
+<layer>
+  <name>getcircbyuserid</name>
+  <id>LayerInfoImpl-775e6634:1802d3a2206:-70a4</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--75300182:1800fb9638a:-7ffe</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl-775e6634:1802d3a2206:-70a5</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+  <dateCreated>2022-04-15 18:44:59.758 UTC</dateCreated>
+  <dateModified>2022-04-15 18:45:16.681 UTC</dateModified>
+</layer>
